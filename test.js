@@ -4,6 +4,13 @@ var ref = require('ref');
 var get_file_bpm = function(path, params) {
 
 	var source = aubio.new_aubio_source(path, params.samplerate, params.hop_s);//params.samplerate, params.hop_s);
+	try {
+		source.readPointer();
+	}
+	catch (e) {
+		console.log('failed opening ' + path);
+		return;
+	}
 	var samplerate = aubio.aubio_source_get_samplerate(source);
 	console.log('samplerate: ' + samplerate);
 	var beats = [];
@@ -34,7 +41,16 @@ var get_file_bpm = function(path, params) {
 	aubio.del_aubio_tempo(tempo);
 }
 
-get_file_bpm('holden.mp3', {
+
+if (process.argv[2]) {
+	var filename = process.argv[2];
+} else {
+	var filename = 'holden.mp3'
+}
+
+console.log('opening ' + filename);
+
+get_file_bpm(filename, {
 	samplerate: 44100,
 	win_s : 1024,
 	hop_s : 512,

@@ -15,8 +15,11 @@ var aubio = ffi.Library('libaubio', {
 	"aubio_tempo_get_silence": [ "float", ["pointer"]],
 	"aubio_tempo_set_threshold": [ "int", ["pointer", "float"]],
 	"aubio_tempo_get_threshold": [ "float", ["pointer"]],
-	"aubio_tempo_get_period": [ "float", ["pointer"]],
-	"aubio_tempo_get_period_s": [ "float", ["pointer"]],
+
+	// uncomment if using the dev branch of aubio
+	//"aubio_tempo_get_period": [ "float", ["pointer"]],
+	//"aubio_tempo_get_period_s": [ "float", ["pointer"]],
+	
 	"aubio_tempo_get_bpm": [ "float", ["pointer"]],
 	"aubio_tempo_get_confidence": [ "float", ["pointer"]],
 	"del_aubio_tempo": [ "void", ["pointer"]],

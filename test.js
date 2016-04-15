@@ -44,8 +44,6 @@ var get_file_bpm = function(path, params) {
 
 if (process.argv[2]) {
 	var filename = process.argv[2];
-} else {
-	var filename = 'holden.mp3'
 }
 
 console.log('opening ' + filename);

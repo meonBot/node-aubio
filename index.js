@@ -5,6 +5,22 @@ var intPtr = ref.refType('int');
 var stringPtr = ref.refType(ref.types.CString);
 
 var aubio = ffi.Library('libaubio', {
+	// tempo
+	"new_aubio_tempo": [ "pointer", [ "string", "int", "int", "int"]],
+	"aubio_tempo_do": [ "void", [ "pointer", "pointer", "pointer"]],
+	"aubio_tempo_get_last": [ "float", ["pointer"]],
+	"aubio_tempo_get_last_s": [ "float", ["pointer"]],
+	"aubio_tempo_get_last_ms": [ "float", ["pointer"]],
+	"aubio_tempo_set_silence": [ "int", ["pointer", "float"]],
+	"aubio_tempo_get_silence": [ "float", ["pointer"]],
+	"aubio_tempo_set_threshold": [ "int", ["pointer", "float"]],
+	"aubio_tempo_get_threshold": [ "float", ["pointer"]],
+	"aubio_tempo_get_period": [ "float", ["pointer"]],
+	"aubio_tempo_get_period_s": [ "float", ["pointer"]],
+	"aubio_tempo_get_bpm": [ "float", ["pointer"]],
+	"aubio_tempo_get_confidence": [ "float", ["pointer"]],
+	"del_aubio_tempo": [ "void", ["pointer"]],
+
 	// beattracking / misc
 	"new_aubio_beattracking": [ "pointer", [ "int", "int", "int"]],
 	"aubio_beattracking_do": [ "void", [ "pointer", "pointer", "pointer"]],

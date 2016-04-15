@@ -8,7 +8,7 @@ var aubio = ffi.Library('libaubio', {
 	// tempo
 	"new_aubio_tempo": [ "pointer", [ "string", "int", "int", "int"]],
 	"aubio_tempo_do": [ "void", [ "pointer", "pointer", "pointer"]],
-	"aubio_tempo_get_last": [ "float", ["pointer"]],
+	"aubio_tempo_get_last": [ "int", ["pointer"]],
 	"aubio_tempo_get_last_s": [ "float", ["pointer"]],
 	"aubio_tempo_get_last_ms": [ "float", ["pointer"]],
 	"aubio_tempo_set_silence": [ "int", ["pointer", "float"]],

@@ -3,6 +3,7 @@ var ref = require('ref');
 
 var get_file_bpm = function(path, params) {
 
+	// create source
 	var source = aubio.new_aubio_source(path, params.samplerate, params.hop_s);//params.samplerate, params.hop_s);
 	try {
 		source.readPointer();
@@ -13,29 +14,47 @@ var get_file_bpm = function(path, params) {
 	}
 	var samplerate = aubio.aubio_source_get_samplerate(source);
 	console.log('samplerate: ' + samplerate);
-	var beats = [];
 	var total_frames = 0;
-	var test_fvec = aubio.new_fvec(params.hop_s);
-	var out_fvec = aubio.new_fvec(params.hop_s);
 	var tmp_read = ref.alloc('int'); 
+
+	// create tempo
 	var tempo = aubio.new_aubio_tempo('default', params.win_s, params.hop_s, params.samplerate);
+	var beats = [];
 	var total_bpm = 0;
-	var count = 0;
+
+	// create pitch
+	var pitch = aubio.new_aubio_pitch('default', params.win_s, params.hop_s, params.samplerate);
+	aubio.aubio_pitch_set_unit(pitch, 'Hz')
+
+	// create output for source
+	var samples = aubio.new_fvec(params.hop_s);
+	// create output for pitch and beat
+	var out_fvec = aubio.new_fvec(1);
 
 	while(true) {
-		aubio.aubio_source_do(source, test_fvec, tmp_read);
+
+		aubio.aubio_source_do(source, samples, tmp_read);
+
+		aubio.aubio_pitch_do(pitch, test_fvec, out_fvec);
+		var cur_time = total_frames / samplerate;
+		var last_pitch = aubio.fvec_get_sample(out_fvec, 0);
+		//console.log('pitch at %d seconds: %d Hz', cur_time, last_pitch);
+
 		aubio.aubio_tempo_do(tempo, test_fvec, out_fvec);
 		var is_beat = aubio.fvec_get_sample(out_fvec, 0);
 		if (is_beat) {
 			var last_beat = aubio.aubio_tempo_get_last_s(tempo);
 			var last_bpm = aubio.aubio_tempo_get_bpm(tempo);
-			console.log('found beat at %d, %d bpm', last_beat, last_bpm);
+			beats.push(last_beat);
+			console.log('beat at %d (%d bpm)', last_beat, last_bpm);
 		}
 		var read = tmp_read.deref();
 		total_frames += read;
 		if(read != params.hop_s) { break; }
 	} 
-	console.log('total time : %d seconds (%d frames)', (total_frames / samplerate), total_frames);
+	var cur_time = total_frames / samplerate;
+	console.log('total time : %d seconds (%d frames)', cur_time, total_frames);
+	console.log('found %d beats total', beats.length);
 
 	aubio.del_aubio_source(source);
 	aubio.del_aubio_tempo(tempo);

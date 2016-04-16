@@ -35,12 +35,12 @@ var get_file_bpm = function(path, params) {
 
 		aubio.aubio_source_do(source, samples, tmp_read);
 
-		aubio.aubio_pitch_do(pitch, test_fvec, out_fvec);
+		aubio.aubio_pitch_do(pitch, samples, out_fvec);
 		var cur_time = total_frames / samplerate;
 		var last_pitch = aubio.fvec_get_sample(out_fvec, 0);
 		//console.log('pitch at %d seconds: %d Hz', cur_time, last_pitch);
 
-		aubio.aubio_tempo_do(tempo, test_fvec, out_fvec);
+		aubio.aubio_tempo_do(tempo, samples, out_fvec);
 		var is_beat = aubio.fvec_get_sample(out_fvec, 0);
 		if (is_beat) {
 			var last_beat = aubio.aubio_tempo_get_last_s(tempo);

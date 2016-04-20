@@ -64,9 +64,7 @@ var get_features = function(path, params) {
 
 if (process.argv[2]) {
 	var filename = process.argv[2];
-}
-
-if (filename == null) {
+} else {
   console.log('error: a command line argument is required.');
   console.log('usage examples:');
   console.log('   ' + process.argv[0] + ' ' + process.argv[1] + ' <file.wav>');

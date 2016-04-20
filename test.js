@@ -1,7 +1,7 @@
 var aubio = require('./index.js');
 var ref = require('ref');
 
-var get_file_bpm = function(path, params) {
+var get_features = function(path, params) {
 
 	// create source
 	var source = aubio.new_aubio_source(path, params.samplerate, params.hop_s);//params.samplerate, params.hop_s);
@@ -66,9 +66,17 @@ if (process.argv[2]) {
 	var filename = process.argv[2];
 }
 
+if (filename == null) {
+  console.log('error: a command line argument is required.');
+  console.log('usage examples:');
+  console.log('   ' + process.argv[0] + ' ' + process.argv[1] + ' <file.wav>');
+  console.log('   ' + process.argv[0] + ' ' + process.argv[1] + ' <file.mp3>');
+  return;
+}
+
 console.log('opening ' + filename);
 
-get_file_bpm(filename, {
+get_features(filename, {
 	samplerate: 44100,
 	win_s : 1024,
 	hop_s : 512,

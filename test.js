@@ -58,6 +58,7 @@ var get_file_bpm = function(path, params) {
 
 	aubio.del_aubio_source(source);
 	aubio.del_aubio_tempo(tempo);
+	aubio.del_aubio_pitch(pitch);
 }
 
 

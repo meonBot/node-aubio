@@ -24,12 +24,19 @@ var aubio = ffi.Library('libaubio', {
 	"aubio_tempo_get_confidence": [ "float", ["pointer"]],
 	"del_aubio_tempo": [ "void", ["pointer"]],
 
-	// beattracking / misc
-	"new_aubio_beattracking": [ "pointer", [ "int", "int", "int"]],
-	"aubio_beattracking_do": [ "void", [ "pointer", "pointer", "pointer"]],
-	"aubio_beattracking_get_bpm": [ "float", ["pointer"]],
-	"aubio_filter_do": [ "void", [ "pointer", "pointer" ]],
+	// filter
+	"new_aubio_filter": [ "pointer", [ "int" ]],
+	// delete
+	"del_aubio_filter": [ "pointer" ],
+	// new shortcuts
 	"new_aubio_filter_a_weighting": [ "pointer", [ "int" ]],
+	"new_aubio_filter_c_weighting": [ "pointer", [ "int" ]],
+	// general do
+	"aubio_filter_do": [ "void", [ "pointer" ]],
+	// variations
+	"aubio_filter_do_outplace": [ "void", [ "pointer", "pointers" ]],
+	"aubio_filter_do_filtfilt": [ "void", [ "pointer", "pointers" ]],
+	"aubio_filter_do_reset": [ "void", [ "pointer", "pointers" ]],
 
 	// source
 	"new_aubio_source": [ "pointer", [ "string", "int", "int" ]],

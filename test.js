@@ -15,7 +15,7 @@ var get_features = function(path, params) {
 	var samplerate = aubio.aubio_source_get_samplerate(source);
 	console.log('samplerate: ' + samplerate);
 	var total_frames = 0;
-	var tmp_read = ref.alloc('int'); 
+	var tmp_read = ref.alloc('int');
 
 	// create tempo
 	var tempo = aubio.new_aubio_tempo('default', params.win_s, params.hop_s, params.samplerate);
@@ -51,7 +51,7 @@ var get_features = function(path, params) {
 		var read = tmp_read.deref();
 		total_frames += read;
 		if(read != params.hop_s) { break; }
-	} 
+	}
 	var cur_time = total_frames / samplerate;
 	console.log('total time : %d seconds (%d frames)', cur_time, total_frames);
 	console.log('found %d beats total', beats.length);

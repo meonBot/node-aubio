@@ -36,6 +36,28 @@ var aubio = ffi.Library('libaubio', {
     "cvec_phas_ones": [ "void", [ "pointer" ]],
     "cvec_zeros": [ "void", [ "pointer" ]],
 
+    // source
+    "new_aubio_source": [ "pointer", [ "string", "int", "int" ]],
+    "aubio_source_do": [ "void", [ "pointer", "pointer", intPtr ]],
+    "aubio_source_do_multi": [ "void", [ "pointer", "pointer", intPtr ]],
+    "aubio_source_get_samplerate": [ "int", [ "pointer" ]],
+    "aubio_source_get_channels": [ "int", [ "pointer" ]],
+    "aubio_source_get_duration": [ "int", [ "pointer" ]],
+    "aubio_source_seek": [ "int", [ "pointer", "int" ]],
+    "aubio_source_close": [ "int", [ "pointer" ]],
+    "del_aubio_source": [ "void", [ "pointer" ]],
+
+    // sink
+    "new_aubio_sink": [ "pointer", [ "string", "int" ]],
+    "aubio_sink_preset_samplerate": [ "void", [ "pointer", "int" ]],
+    "aubio_sink_preset_channels": [ "void", [ "pointer", "int" ]],
+    "aubio_sink_get_samplerate": [ "int", [ "pointer" ]],
+    "aubio_sink_get_channels": [ "int", [ "pointer" ]],
+    "aubio_sink_do": ["void", ["pointer", "pointer", "int"]],
+    "aubio_sink_do_multi": ["void", ["pointer", "pointer", "int"]],
+    "aubio_sink_close": [ "int", [ "pointer" ]],
+    "del_aubio_sink": [ "void", [ "pointer" ]],
+
     // tempo
     "new_aubio_tempo": [ "pointer", [ "string", "int", "int", "int"]],
     "del_aubio_tempo": [ "void", ["pointer"]],
@@ -64,28 +86,6 @@ var aubio = ffi.Library('libaubio', {
     "aubio_filter_do_filtfilt": [ "void", [ "pointer", "pointer" ]],
     "aubio_filter_do_reset": [ "void", [ "pointer", "pointer" ]],
     "del_aubio_filter": [ "void", [ "pointer" ]],
-
-    // source
-    "new_aubio_source": [ "pointer", [ "string", "int", "int" ]],
-    "aubio_source_do": [ "void", [ "pointer", "pointer", intPtr ]],
-    "aubio_source_do_multi": [ "void", [ "pointer", "pointer", intPtr ]],
-    "aubio_source_get_samplerate": [ "int", [ "pointer" ]],
-    "aubio_source_get_channels": [ "int", [ "pointer" ]],
-    "aubio_source_get_duration": [ "int", [ "pointer" ]],
-    "aubio_source_seek": [ "int", [ "pointer", "int" ]],
-    "aubio_source_close": [ "int", [ "pointer" ]],
-    "del_aubio_source": [ "void", [ "pointer" ]],
-
-    // sink
-    "new_aubio_sink": [ "pointer", [ "string", "int" ]],
-    "aubio_sink_preset_samplerate": [ "void", [ "pointer", "int" ]],
-    "aubio_sink_preset_channels": [ "void", [ "pointer", "int" ]],
-    "aubio_sink_get_samplerate": [ "int", [ "pointer" ]],
-    "aubio_sink_get_channels": [ "int", [ "pointer" ]],
-    "aubio_sink_do": ["void", ["pointer", "pointer", "int"]],
-    "aubio_sink_do_multi": ["void", ["pointer", "pointer", "int"]],
-    "aubio_sink_close": [ "int", [ "pointer" ]],
-    "del_aubio_sink": [ "void", [ "pointer" ]],
 
     // onset
     "new_aubio_onset": [ "pointer", [ "string", "int", "int", "int"]],

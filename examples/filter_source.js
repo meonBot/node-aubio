@@ -8,7 +8,7 @@ var filter_source = function(inputfile, outputfile, params) {
     try {
         source.readPointer();
     } catch (e) {
-        console.log('failed opening ' + path + ' for reading');
+        console.log('failed opening ' + inputfile + ' for reading');
         return;
     }
 
@@ -20,7 +20,7 @@ var filter_source = function(inputfile, outputfile, params) {
     try {
         sink.readPointer();
     } catch (e) {
-        console.log('failed opening ' + path + ' for writing');
+        console.log('failed opening ' + outputfile + ' for writing');
         return;
     }
 

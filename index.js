@@ -5,6 +5,37 @@ var intPtr = ref.refType('int');
 //var stringPtr = ref.refType(ref.types.CString);
 
 var aubio = ffi.Library('libaubio', {
+    // fvec
+    "new_fvec": [ "pointer", [ "int" ]],
+    "del_fvec": [ "void", [ "pointer" ]],
+    "fvec_get_sample": [ "float", [ "pointer", "int" ]],
+    "fvec_set_sample": [ "void", [ "pointer", "float", "int" ]],
+    "fvec_get_data": [ "float", [ "pointer" ]],
+    "fvec_print": [ "void", [ "pointer" ]],
+    "fvec_set_all": [ "void", [ "pointer", "float" ]],
+    "fvec_zeros": [ "void", [ "pointer" ]],
+    "fvec_rev": [ "void", [ "pointer" ]],
+    "fvec_weight": [ "void", [ "pointer", "pointer" ]],
+    "fvec_copy": [ "void", [ "pointer", "pointer" ]],
+    "fvec_ones": [ "void", [ "pointer" ]],
+
+    // cvec
+    "new_cvec": [ "pointer", [ "int" ]],
+    "del_cvec": [ "void", [ "pointer" ]],
+    "cvec_norm_get_sample": [ "float", [ "pointer", "int" ]],
+    "cvec_norm_set_sample": [ "void", [ "pointer", "float", "int" ]],
+    "cvec_norm_get_data": [ "float", [ "pointer" ]],
+    "cvec_phas_get_data": [ "float", [ "pointer" ]],
+    "cvec_print": [ "void", [ "pointer" ]],
+    "cvec_copy": [ "void", [ "pointer", "pointer" ]],
+    "cvec_norm_set_all": [ "void", [ "pointer", "float" ]],
+    "cvec_norm_zeros": [ "void", [ "pointer" ]],
+    "cvec_norm_ones": [ "void", [ "pointer" ]],
+    "cvec_phas_set_all": [ "void", [ "pointer", "float" ]],
+    "cvec_phas_zeros": [ "void", [ "pointer" ]],
+    "cvec_phas_ones": [ "void", [ "pointer" ]],
+    "cvec_zeros": [ "void", [ "pointer" ]],
+
     // tempo
     "new_aubio_tempo": [ "pointer", [ "string", "int", "int", "int"]],
     "del_aubio_tempo": [ "void", ["pointer"]],
@@ -96,37 +127,6 @@ var aubio = ffi.Library('libaubio', {
     "new_aubio_mfcc": [ "pointer", [ "int", "int", "int", "int"]],
     "aubio_mfcc_do": ["void", ["pointer", "pointer", "pointer"]],
     "del_aubio_mfcc": [ "void", ["pointer"]],
-
-    // fvec
-    "new_fvec": [ "pointer", [ "int" ]],
-    "del_fvec": [ "void", [ "pointer" ]],
-    "fvec_get_sample": [ "float", [ "pointer", "int" ]],
-    "fvec_set_sample": [ "void", [ "pointer", "float", "int" ]],
-    "fvec_get_data": [ "float", [ "pointer" ]],
-    "fvec_print": [ "void", [ "pointer" ]],
-    "fvec_set_all": [ "void", [ "pointer", "float" ]],
-    "fvec_zeros": [ "void", [ "pointer" ]],
-    "fvec_rev": [ "void", [ "pointer" ]],
-    "fvec_weight": [ "void", [ "pointer", "pointer" ]],
-    "fvec_copy": [ "void", [ "pointer", "pointer" ]],
-    "fvec_ones": [ "void", [ "pointer" ]],
-
-    // cvec
-    "new_cvec": [ "pointer", [ "int" ]],
-    "del_cvec": [ "void", [ "pointer" ]],
-    "cvec_norm_get_sample": [ "float", [ "pointer", "int" ]],
-    "cvec_norm_set_sample": [ "void", [ "pointer", "float", "int" ]],
-    "cvec_norm_get_data": [ "float", [ "pointer" ]],
-    "cvec_phas_get_data": [ "float", [ "pointer" ]],
-    "cvec_print": [ "void", [ "pointer" ]],
-    "cvec_copy": [ "void", [ "pointer", "pointer" ]],
-    "cvec_norm_set_all": [ "void", [ "pointer", "float" ]],
-    "cvec_norm_zeros": [ "void", [ "pointer" ]],
-    "cvec_norm_ones": [ "void", [ "pointer" ]],
-    "cvec_phas_set_all": [ "void", [ "pointer", "float" ]],
-    "cvec_phas_zeros": [ "void", [ "pointer" ]],
-    "cvec_phas_ones": [ "void", [ "pointer" ]],
-    "cvec_zeros": [ "void", [ "pointer" ]],
 });
 
 module.exports = aubio;

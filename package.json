@@ -1,6 +1,6 @@
 {
   "name": "node-aubio",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Node.js bindings for audio software aubio",
   "main": "index.js",
   "scripts": {

@@ -18,7 +18,7 @@
     "c"
   ],
   "author": "Gray Leonard",
-  "license": "GNU GPL v3",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/grayleonard/node-aubio/issues"
   },

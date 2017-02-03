@@ -4,7 +4,7 @@ var ref = require('ref');
 var get_features = function(path, params) {
 
 	// create source
-	var source = aubio.new_aubio_source(path, params.samplerate, params.hop_s);//params.samplerate, params.hop_s);
+	var source = aubio.new_aubio_source(path, params.samplerate, params.hop_s);
 	try {
 		source.readPointer();
 	}

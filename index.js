@@ -58,22 +58,6 @@ var aubio = ffi.Library('libaubio', {
     "aubio_sink_close": [ "int", [ "pointer" ]],
     "del_aubio_sink": [ "void", [ "pointer" ]],
 
-    // tempo
-    "new_aubio_tempo": [ "pointer", [ "string", "int", "int", "int"]],
-    "del_aubio_tempo": [ "void", ["pointer"]],
-    "aubio_tempo_do": [ "void", [ "pointer", "pointer", "pointer"]],
-    "aubio_tempo_get_last": [ "int", ["pointer"]],
-    "aubio_tempo_get_last_s": [ "float", ["pointer"]],
-    "aubio_tempo_get_last_ms": [ "float", ["pointer"]],
-    "aubio_tempo_set_silence": [ "int", ["pointer", "float"]],
-    "aubio_tempo_get_silence": [ "float", ["pointer"]],
-    "aubio_tempo_set_threshold": [ "int", ["pointer", "float"]],
-    "aubio_tempo_get_threshold": [ "float", ["pointer"]],
-    "aubio_tempo_get_period": [ "float", ["pointer"]],
-    "aubio_tempo_get_period_s": [ "float", ["pointer"]],
-    "aubio_tempo_get_bpm": [ "float", ["pointer"]],
-    "aubio_tempo_get_confidence": [ "float", ["pointer"]],
-
     // filter
     "new_aubio_filter": [ "pointer", [ "int" ]],
     // new shortcuts
@@ -122,6 +106,22 @@ var aubio = ffi.Library('libaubio', {
     "aubio_pitch_get_silence": ["float", ["pointer"]],
     "aubio_pitch_get_confidence": ["float", ["pointer"]],
     "del_aubio_pitch": [ "void", ["pointer"]],
+
+    // tempo
+    "new_aubio_tempo": [ "pointer", [ "string", "int", "int", "int"]],
+    "del_aubio_tempo": [ "void", ["pointer"]],
+    "aubio_tempo_do": [ "void", [ "pointer", "pointer", "pointer"]],
+    "aubio_tempo_get_last": [ "int", ["pointer"]],
+    "aubio_tempo_get_last_s": [ "float", ["pointer"]],
+    "aubio_tempo_get_last_ms": [ "float", ["pointer"]],
+    "aubio_tempo_set_silence": [ "int", ["pointer", "float"]],
+    "aubio_tempo_get_silence": [ "float", ["pointer"]],
+    "aubio_tempo_set_threshold": [ "int", ["pointer", "float"]],
+    "aubio_tempo_get_threshold": [ "float", ["pointer"]],
+    "aubio_tempo_get_period": [ "float", ["pointer"]],
+    "aubio_tempo_get_period_s": [ "float", ["pointer"]],
+    "aubio_tempo_get_bpm": [ "float", ["pointer"]],
+    "aubio_tempo_get_confidence": [ "float", ["pointer"]],
 
     // mfcc
     "new_aubio_mfcc": [ "pointer", [ "int", "int", "int", "int"]],

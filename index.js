@@ -71,6 +71,14 @@ var aubio = ffi.Library('libaubio', {
     "aubio_filter_do_reset": [ "void", [ "pointer", "pointer" ]],
     "del_aubio_filter": [ "void", [ "pointer" ]],
 
+    // phase vocoder
+    "new_aubio_pvoc": [ "pointer", [ "int", "int" ]],
+    "del_aubio_pvoc": [ "void", [ "pointer" ]],
+    "aubio_pvoc_do": [ "void", [ "pointer", "pointer", "pointer" ]],
+    "aubio_pvoc_rdo": [ "void", [ "pointer", "pointer", "pointer" ]],
+    //"aubio_pvoc_get_win": [ "int", [ "pointer" ]],
+    //"aubio_pvoc_get_hop": [ "int", [ "pointer" ]],
+
     // onset
     "new_aubio_onset": [ "pointer", [ "string", "int", "int", "int"]],
     "aubio_onset_do": [ "void", [ "pointer", "pointer", "pointer"]],

@@ -27,9 +27,9 @@ var aubio = ffi.Library('libaubio', {
     "new_aubio_filter_a_weighting": [ "pointer", [ "int" ]],
     "new_aubio_filter_c_weighting": [ "pointer", [ "int" ]],
     // general do
-    "aubio_filter_do": [ "void", [ "pointer" ]],
+    "aubio_filter_do": [ "void", [ "pointer", "pointer" ]],
     // variations
-    "aubio_filter_do_outplace": [ "void", [ "pointer", "pointer" ]],
+    "aubio_filter_do_outplace": [ "void", [ "pointer", "pointer", "pointer" ]],
     "aubio_filter_do_filtfilt": [ "void", [ "pointer", "pointer" ]],
     "aubio_filter_do_reset": [ "void", [ "pointer", "pointer" ]],
     "del_aubio_filter": [ "void", [ "pointer" ]],

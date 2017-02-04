@@ -8,7 +8,7 @@ var filter_source = function(inputfile, outputfile, params) {
     try {
         source.readPointer();
     } catch (e) {
-        console.log('failed opening ' + inputfile + ' for reading');
+        console.error('failed opening ' + inputfile + ' for reading');
         return;
     }
 
@@ -20,7 +20,7 @@ var filter_source = function(inputfile, outputfile, params) {
     try {
         sink.readPointer();
     } catch (e) {
-        console.log('failed opening ' + outputfile + ' for writing');
+        console.error('failed opening ' + outputfile + ' for writing');
         return;
     }
 
@@ -46,6 +46,7 @@ var filter_source = function(inputfile, outputfile, params) {
     // clean up
     aubio.del_aubio_sink(sink);
     aubio.del_aubio_source(source);
+    aubio.del_fvec(samples);
 }
 
 if (process.argv[2] && process.argv[3]) {

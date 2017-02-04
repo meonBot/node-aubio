@@ -1,6 +1,6 @@
 {
   "name": "node-aubio",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Node.js bindings for aubio",
   "main": "index.js",
   "scripts": {
@@ -18,10 +18,12 @@
     "c"
   ],
   "author": "Gray Leonard",
-  "contributors": [{
-    "name": "Paul Brossier",
-    "email": "piem@aubio.org"
-  }],
+  "contributors": [
+    {
+      "name": "Paul Brossier",
+      "email": "piem@aubio.org"
+    }
+  ],
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/aubio/node-aubio/issues"

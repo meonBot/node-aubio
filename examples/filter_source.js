@@ -1,4 +1,4 @@
-var aubio = require('../index.js');
+var aubio = require('../');
 var ref = require('ref');
 
 var filter_source = function(inputfile, outputfile, params) {

@@ -1,4 +1,4 @@
-var aubio = require('../index.js');
+var aubio = require('../');
 var ref = require('ref');
 
 var extract_mfcc = function(inputfile, params) {

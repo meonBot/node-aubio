@@ -1,5 +1,5 @@
 {
-  "name": "node-aubio",
+  "name": "aubio",
   "version": "0.0.3",
   "description": "Node.js bindings for aubio",
   "main": "index.js",

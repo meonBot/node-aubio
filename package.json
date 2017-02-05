@@ -12,7 +12,10 @@
   },
   "keywords": [
     "audio",
-    "bindings",
+    "sound",
+    "music",
+    "analysis",
+    "detection",
     "aubio",
     "DSP",
     "signal processing",
